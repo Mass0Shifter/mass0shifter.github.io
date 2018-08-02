@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lovetts Map project</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body class="bg-info">
+		<div class="text-center">
+			<h1>This is Done by Zero!</h1>
+		</div>
+		<div id="main_div" class="container-fluid">
+			
+			<div id="topbar" class="row">
+				<div class="col-xs-12 input-group">
+					<span class="input-group-addon">Search Filter</span>
+					<input class="form-control" type="text" id="filter-search" placeholder="Search Filter" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'"><!--data-bind="event: { keyup: searchFilter }"-->
+					<div class="input-group-btn">
+					<button id="filter-btn" class="btn btn-default btn-success"><i class="glyphicon glyphicon-search"></i></button>
+				  </div>
+				</div>
+			</div>
+			
+		</div>
+		<div id="filter-menu" class="pull-left">   
+			<ul id="placelist" class="list-group" data-bind="foreach: locationList">
+				<li class="list-group-item btn places" data-bind="text: title, click: show">Places is loading...</li>
+			</ul>
+		</div>
+		<div id="map" ></div>
+	</body>
+	
+	<!-- JS Files START  -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/utils/knockout-3.5.0rc.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/app.js"></script>
+	<script async defer onerror="googleError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7936rM_4Qr_OFTvg0ldosKBUw_wF0vCc&v=3&callback=startMap">
+   	</script>
+	
+	<!-- JS Files END-->
+</html>
