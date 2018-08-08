@@ -2,35 +2,37 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Zeros Map project</title>
+		<title>Zeros Project Site</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="assets/css/main.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	</head>
 
-	<body class="bg-info">
+	<body class="bg-zero">
+		<header>
+			<nav class="navbar navbar-inverse navbar-fixed-bottom">
+			  <div class="container-fluid">
+				<div class="navbar-header">
+				  <a class="navbar-brand" href="#">WebSiteName</a>
+				</div>
+				<div>
+				  <ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li> 
+					<li><a href="#">Page 3</a></li> 
+				  </ul>
+				</div>
+			  </div>
+			</nav>
+		</header>
 		<div class="text-center">
-			<h1>This is Done by Zero!</h1>
+			<h1>Welcome To Zero's WebBased Project Center</h1>
 		</div>
+		<img src="assets/img/zero/zero-him-self1.png" class="pic-zero">
 		<div id="main_div" class="container-fluid">
 			
-			<div id="topbar" class="row">
-				<div class="col-xs-12 input-group">
-					<span class="input-group-addon">Search Filter</span>
-					<input class="form-control" type="text" id="filter-search" placeholder="Search Filter" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'"><!--data-bind="event: { keyup: searchFilter }"-->
-					<div class="input-group-btn">
-					<button id="filter-btn" class="btn btn-default btn-success"><i class="glyphicon glyphicon-search"></i></button>
-				  </div>
-				</div>
-			</div>
-			
 		</div>
-		<div id="filter-menu" class="pull-left">   
-			<ul id="placelist" class="list-group" data-bind="foreach: locationList">
-				<li class="list-group-item btn places" data-bind="text: title, click: show">Places is loading...</li>
-			</ul>
-		</div>
-		<div id="map" ></div>
 	</body>
 	
 	<!-- JS Files START  -->

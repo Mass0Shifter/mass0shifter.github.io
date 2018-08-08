@@ -1,0 +1,10 @@
+.bg-zero{
+	background-image: url(../img/zero/zero-bluebg.jpg);
+	background-color: rgba(0,0,0,0.69);
+	background-size: cover;
+}
+
+.pic-zero{
+	height: 50%;
+	width: 50%;
+}
