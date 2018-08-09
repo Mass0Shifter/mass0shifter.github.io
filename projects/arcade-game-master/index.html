@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Effective JavaScript: Frogger</title>
+		<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h1 id="gameOver">Game Over!</h1>
+			</div>
+			<div class="modal-body" style="text-align: center;">
+				<h2> Your Stats<br/>
+					<img id="charact" src="images/char-boy UI.png" width="50" height="52">
+				</h2>
+				<h3 id="finishtime"></h3>
+				<h3> 
+					You collected
+					<span id="green gem"></span> <img src="images/Gem Green UI.png" width="25" height="28">
+					<span id="blue gem"></span> <img src="images/Gem Blue UI.png" width="25" height="28">
+					<span id="orange gem"></span> <img src="images/Gem Orange UI.png" width="25" height="28">
+				</h3>
+				<h3 id="lives" style="display: none;"> You have <span id="hearts"></span> <img src="images/Heart.png" width="25" height="43"> remaining</h3>
+				<h3 id="levels"></h3>
+				<h3> Your Score : <span id="scores"></span> </h3>
+			</div>
+			<div class="modal-footer" style="text-align: center;">
+				<h1 class="restart white" title="Restart Game?"><i class="fa fa-repeat"></i></h1>
+				 <h3>Wana Try Again?</h3>
+			</div>
+		  </div>
+
+		</div>	
+		<div class="timer" id="timer" title="Timer">0:00</div>
+		<script src="js/resources.js"></script>
+		<script src="js/timer_helper.js"></script>	
+		<script src="js/helper.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/live.js"></script>
+		<script src="js/gems.js"></script>
+		<script src="js/ui.js"></script>
+		<script src="js/initialiser.js"></script>
+		<script src="js/engine.js"></script>
+		
+
+	</body>
+</html>

@@ -3,16 +3,13 @@ var map;
 var infoWindow;
 var bounds;
 
-// google maps init
+// google maps callback function when the async request is completed
 function startMap() {
-    var sciencecity = {
-        lat: 22.539,
-        lng: 88.3958
-    };
+    var abuja = {lat: 9.079224, lng: 7.501334};
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 3,
-        center: sciencecity,
-        mapTypeControl: false
+        zoom: 5,
+        center: abuja,
+        mapTypeControl: true
     });
 
     infoWindow = new google.maps.InfoWindow();
@@ -23,16 +20,16 @@ function startMap() {
 }
 
 // handle map error
-function googleError() {
-    alert('An error occurred with Google Maps!');
+function googleRequestError() {
+    alert('An error occurred with Google Maps API Request, Refresh your page when connected to the internet!');
 }
 
 /* Location Model */ 
 var LocationMarker = function(data) {
     var self = this;
 
-    this.title = data.title;
-    this.position = data.location;
+    this.title = data.title; // sets the LocationMarker.title info from the data arg
+    this.position = data.location; // sets the LocationMarker.position info from the data arg
     this.street = '',
     this.city = '',
     this.phone = '';
@@ -45,13 +42,32 @@ var LocationMarker = function(data) {
     // mouses over the marker.
     var highlightedIcon = makeMarkerIcon('FFFF24');
 
-    var clientID = 'M52DBBI40PSH5IPR25XKJSA0NFIEZWXRM012FUSB5KPGYU4X';
-    var clientSecret = 'ESWMBI0RUERHZPLRPMSVABDW2V3XYIBSO2QDW4S2WKAEQQTG';
+	// For foursquare data request
+	// Foursquare was used to provide extra places data for this project
+    var clientID = 'EGJXZYALSQS3CSTDIU1TNTTJTOSJDEUNWHTWHVWOASAHL5ID';
+    var clientSecret = '2ZMGVN422YA4J2H3LUVHN5XNKC0CJ1Y1TRSCN4SHHU4FHAGI';
 
     // get JSON Data request from foursquare data
-    var requestURL = 'https://api.foursquare.com/v2/venues/search?ll=' + this.position.lat + ',' + this.position.lng + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.title;
+    var requestURL = 
+		'https://api.foursquare.com/v2/venues/search?ll=' + 
+		this.position.lat + 
+		',' + 
+		this.position.lng + 
+		'&client_id=' + 
+		clientID + 
+		'&client_secret=' + 
+		clientSecret + 
+		'&v=20160118' + 
+		'&query=' + 
+		this.title;
+	/*
+		Sample
+	https://api.foursquare.com/v2/venues/search?ll=0.555,3.555&client_id=M52DBBI40PSH5IPR25XKJSA0NFIEZWXRM012FUSB5KPGYU4X
+	&clientSecret=ESWMBI0RUERHZPLRPMSVABDW2V3XYIBSO2QDW4S2WKAEQQTG&v=20160118&query=titleofmarker
+	
+	*/
 
-    $.getJSON(requestURL).done(function(data) {
+    jQuery.getJSON(requestURL).done(function(data) {
 		var results = data.response.venues[0];
         self.street = results.location.formattedAddress[0] ? results.location.formattedAddress[0]: 'N/A';
         self.city = results.location.formattedAddress[1] ? results.location.formattedAddress[1]: 'N/A';
@@ -79,7 +95,7 @@ var LocationMarker = function(data) {
         }
     });
     
-    // Create an onclick even to open an indowindow at each marker
+    // add an onclick even to open an infowindow at each marker
     this.marker.addListener('click', function() {
         populateInfoWindow(this, self.street, self.city, self.phone, infoWindow);
         toggleBounceAnimation(this);
@@ -110,31 +126,39 @@ var LocationMarker = function(data) {
 /* The View Model */
 function ViewModel() {
     var self = this;
-
+	
+	this.menuVisible = ko.observable(true);
     this.searchItem = ko.observable('');
 
-    this.mapList = ko.observableArray([]);
-
+    this.mapMarkerList = ko.observableArray([]); // Create an array to hold my locationmarker
+	
+	this.hideShowMenu = function(){
+		//alert(self.menuVisible());
+		self.menuVisible(!self.menuVisible());
+	}
     // add markers for each location
     myLocations.forEach(function(location) {
-        self.mapList.push( new LocationMarker(location) );
+        self.mapMarkerList.push( new LocationMarker(location) );
     });
 
     // locations viewed on map
     this.locationList = ko.computed(function() {
         var searchFilter = self.searchItem().toLowerCase();
         if (searchFilter) {
-            return ko.utils.arrayFilter(self.mapList(), function(location) {
-                var str = location.title.toLowerCase();
-                var result = str.includes(searchFilter);
-                location.visible(result);
-				return result;
-			});
+            return ko.utils.arrayFilter(
+				self.mapMarkerList(),
+				function(marker) {
+					var str = marker.title.toLowerCase();
+					var resultBool = str.includes(searchFilter);
+					marker.visible(resultBool);
+					return resultBool;
+				}
+			);
         }
-        self.mapList().forEach(function(location) {
-            location.visible(true);
+        self.mapMarkerList().forEach(function(marker) {
+            marker.visible(true);
         });
-        return self.mapList();
+        return self.mapMarkerList();
     }, self);
 };
 
