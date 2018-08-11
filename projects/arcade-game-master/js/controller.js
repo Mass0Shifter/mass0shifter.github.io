@@ -17,5 +17,6 @@ function addListeners(){
 }
 
 function move(event){
+ console.log(event);
  player.handleInput(event.data.direction);
 }
