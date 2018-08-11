@@ -6,7 +6,7 @@ $("document").load(function(){
 });
 
 function enlargeButtons(){
-  $(".movement").css(["width", "height"], "20%");
+  $(".movement").css("height", "20%");
 }
 
 function addListeners(){
