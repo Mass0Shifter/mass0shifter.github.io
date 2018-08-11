@@ -10,13 +10,13 @@ function enlargeButtons(){
 }
 
 function addListeners(){
-  $("#moveleft").on("click", {direction:"left"}, move);
-  $("#moveright").on("click", {direction:"right"}, move);
-  $("#moveup").on("click", {direction:"up"}, move);
-  $("#movedown").on("click", {direction:"down"}, move);
+  $("#moveleft").on("click", ,{direction:"left"}, move);
+  $("#moveright").on("click", ,{direction:"right"}, move);
+  $("#moveup").on("click", ,{direction:"up"}, move);
+  $("#movedown").on("click", ,{direction:"down"}, move);
 }
 
 function move(event){
  console.log(event);
- player.handleInput(event);
+ player.handleInput(event.data.direction);
 }
