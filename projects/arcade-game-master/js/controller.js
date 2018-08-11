@@ -3,6 +3,6 @@
   }
 */
 
-function moveUp(){
-
- }
+function move(direction){
+ player.handleInput(direction);
+}
