@@ -1,8 +1,14 @@
-/*window.onload = function(){
- var up = $.("#moveup").html().addEventListener("clcik", 
-  }
-*/
+// Game onscreen Controller
 
-function move(direction){
- player.handleInput(direction);
+$("document").load(addListener);
+
+function addListeners(){
+ $("#moveleft").on("click", {direction:"left"}, move);
+ $("#moveright").on("click", {direction:"right"}, move);
+ $("#moveup").on("click", {direction:"up"}, move);
+ $("#movedown").on("click", {direction:"down"}, move);
+}
+
+function move(event){
+ player.handleInput(event.data.direction);
 }
