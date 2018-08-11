@@ -1,7 +1,7 @@
 // Game onscreen Controller
 
 $.ready(function(){
- addListener();
+ addListeners();
  enlargeButtons();
 });
 
