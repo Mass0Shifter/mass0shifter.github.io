@@ -1,6 +1,6 @@
 // Game onscreen Controller
 
-$("document").load(function(){
+$("document").ready(function(){
  addListener();
  enlargeButtons();
 });
