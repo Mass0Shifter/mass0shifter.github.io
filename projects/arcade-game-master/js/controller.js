@@ -6,17 +6,17 @@ $.ready(function(){
 });
 
 function enlargeButtons(){
-  $(".movement").css("height", "20%");
+  $(".movement").css("height", 20+"%");
 }
 
 function addListeners(){
-  $("#moveleft").on("click", ,{direction:"left"}, move);
-  $("#moveright").on("click", ,{direction:"right"}, move);
-  $("#moveup").on("click", ,{direction:"up"}, move);
-  $("#movedown").on("click", ,{direction:"down"}, move);
+  $("#moveleft").on("click", function(){ move("left")});
+  $("#moveright").on("click", function(){ move("right")});
+  $("#moveup").on("click", function(){ move("up")});
+  $("#movedown").on("click", function(){ move("down")});
 }
 
-function move(event){
- console.log(event);
- player.handleInput(event.data.direction);
+function move(direction){
+ console.log(direction);
+ player.handleInput(direction);
 }
