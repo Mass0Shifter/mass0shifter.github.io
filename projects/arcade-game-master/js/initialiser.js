@@ -33,13 +33,13 @@ var playerStartingLives = 5, // Amount of lives player starts with.
 	allGems = [],	// Holds all our gem objects
 	player = new player(), // Spawns the player
 	ui = new UI(), 	// Instantiate the ui
-	maxLevel = 20; 	// Set The total amount of levels to be reached.
+	maxLevel = 15; 	// Set The total amount of levels to be reached.
 
 var speeds = { 	//	Speed settings for setting randomSpeed()
-				One:400, // Speed 1
-				Two:600, // Speed 2
-				Three:800, // Speed 3
-				//Four:1000, // God Speed
+				One:100, // Speed 1
+				Two:300, // Speed 2
+				Three:600, // Speed 3
+				Four:800, // God Speed
 				amount:4 // Amount of objects excluding this one
 			  },
 	Xpos = {	//	X-positions settings for setting randomPositionX()
