@@ -39,7 +39,7 @@ function middlerBtnController(){
 		down = $("#movedown");
 	console.log(up[0].clientWidth, down, left, right);
 		
-	$(".movement").css("transform", "scale(3)").css("margin", "2%")
+	$(".movement").css("transform", "scale(2)").css("margin", "2%")
 		.css("position", "absolute")
 		.css("top", midY+"px");
 		
