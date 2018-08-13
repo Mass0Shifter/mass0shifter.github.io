@@ -1,16 +1,12 @@
 // Game onscreen Controller
 
-$.ready(function(){
- console.log("document.ready");
- addListeners();
- enlargeButtons();
-});
+window.onload = function(){
+	 console.log("document.load");
+	 startTimer(); // Starts the game timer
+	 middlerBtnController();
+	 addListeners();
+};
 
-function enlargeButtons(){
- console.log("large.readying");
- $(".movement").css("height", 20+"%");
- console.log("large.ready");
-}
 
 function addListeners(){
   console.log("listeners.readying");
@@ -31,4 +27,33 @@ function addListeners(){
 function move(direction){
  console.log(direction);
  player.handleInput(direction);
+}
+
+function middlerBtnController(){
+	var y = window.innerHeight, x = window.innerWidth, midX = x/2, midY = y/2;
+
+	var left = $("#moveleft"),
+		right = $("#moveright"),
+		up = $("#moveup"),
+		down = $("#movedown");
+	console.log(up[0].clientWidth, down, left, right);
+		
+	$(".movement").css("transform", "scale(2)").css("margin", "2%")
+		.css("position", "absolute")
+		.css("top", midY+"px");
+		
+	$("#moveleft").css("left", x-x+"px");
+	 
+	$("#moveright").css("left", (x-(right[0].clientWidth*2)-percenter(2.5, x))+"px");
+	  
+	$("#moveup").css("left", percenter(8, x)+"px");
+	 
+	$("#movedown").css("left", percenter(84, x)+"px");
+}
+
+function percenter(percent, original){ //This function calculates in percent the desired position on the canvas element
+
+	var ap = (percent * original) / 100;
+	return ap;
+	
 }
