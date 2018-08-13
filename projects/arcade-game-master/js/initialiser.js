@@ -70,8 +70,4 @@ var speeds = { 	//	Speed settings for setting randomSpeed()
 
 
 ui.nextLevel();	// Calls the nextLevel Method of the ui
-				// The ui holds the creation of the items on screen at every level.
-
-startTimer(); // Starts the game timer
-
-alert("Game Start!");
+		// The ui holds the creation of the items on screen at every level.
