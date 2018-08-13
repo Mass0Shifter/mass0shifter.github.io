@@ -33,6 +33,7 @@ var playerStartingLives = 5, // Amount of lives player starts with.
 	allGems = [],	// Holds all our gem objects
 	player = new player(), // Spawns the player
 	ui = new UI(), 	// Instantiate the ui
+   	levelDifference = 3, 	// Increase Enemy After The Specified levelDifference
 	maxLevel = 15; 	// Set The total amount of levels to be reached.
 
 var speeds = { 	//	Speed settings for setting randomSpeed()
