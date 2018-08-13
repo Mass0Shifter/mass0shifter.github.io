@@ -34,14 +34,14 @@ var playerStartingLives = 5, // Amount of lives player starts with.
 	player = new player(), // Spawns the player
 	ui = new UI(), 	// Instantiate the ui
    	levelDifference = 3, 	// Increase Enemy After The Specified levelDifference
-	maxLevel = 15; 	// Set The total amount of levels to be reached.
+	maxLevel = 16; 	// Set The total amount of levels to be reached.
 
 var speeds = { 	//	Speed settings for setting randomSpeed()
-				One:100, // Speed 1
+				One:100, // slug Speed
 				Two:300, // Speed 2
 				Three:600, // Speed 3
-				Four:800, // God Speed
-				amount:4 // Amount of objects excluding this one
+				Four:900, // god Speed
+				amount:5 // Amount of objects excluding this one
 			  },
 	Xpos = {	//	X-positions settings for setting randomPositionX()
 				One:0, // Position 1
