@@ -8,6 +8,7 @@ window.onload = function(){
 	 addListeners();
 };
 
+window.onresize = middlerBtnController();
 
 function addListeners(){
   console.log("listeners.readying");
