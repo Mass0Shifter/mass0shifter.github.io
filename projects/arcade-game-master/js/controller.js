@@ -2,6 +2,7 @@
 
 window.onload = function(){
 	 console.log("document.load");
+	alert("Game Start!");
 	 startTimer(); // Starts the game timer
 	 middlerBtnController();
 	 addListeners();
