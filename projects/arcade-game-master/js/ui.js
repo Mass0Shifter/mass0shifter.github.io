@@ -74,7 +74,7 @@ UI.prototype.nextLevel = function() {
 		}
 	}
 	
-	if(this.level % 2 === 0){ // This increses the amount of enemies as the game progresses after every 2 levels
+	if(this.level % levelDifference === 0){ // This increses the amount of enemies as the game progresses
 		totalEnemiesOnscreen++;
 	}
 	
