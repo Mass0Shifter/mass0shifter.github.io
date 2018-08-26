@@ -9,14 +9,14 @@ var workersList = [
 	"Emmanuel Oladipo",
 	"Afam Samuel Chinasa",
 	"Divine Oriaku Chibuzor",
-	"Favour Emmanuel Emenoke",
-	//"John Adeyemi",
+	"Favour Emmanuel Emenike",
+	"John Adeyemi",
 	//"Michael Ayodele",
 	"Abdulazeez Akindele",
 	"Miracle Onoja Agaba",
-	"Josh",
+	"Joshua Okhai Ayokhai",
 	//"Daniella Imaobong Uno",
-	"Oginni Oluwatomiwa Samuel"
+	//"Oginni Oluwatomiwa Samuel"
 ],
 	sundays = 4,
 	amountOfWorkersPerSunday = workersList.length / sundays;
