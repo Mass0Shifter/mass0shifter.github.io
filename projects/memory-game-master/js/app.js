@@ -8,7 +8,7 @@ let createdCards = []/*For Storing Array Of Created Cards*/,
 	totalTwin = 8 /*Total number of twin cards*/,
 	intervee, // This is an Interval handle for the card open state, after a while the card closes
 	temp, // this is used to store temporal data for the check() function after the wait
-	isTitled = true, // For debuging and testing purpose set it to false to disable the tool tip
+	isTitled = false, // For debuging and testing purpose set it to false to disable the tool tip
 	Card_Array_Label = "1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8"; // A hold for the id of each card
 
 /*
