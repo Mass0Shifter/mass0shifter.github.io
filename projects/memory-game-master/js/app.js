@@ -127,14 +127,14 @@ function cardClick(clicked){
 	
 	if(openCards_id.length === 0){
 		openCards_id[compareArray(openCards_id)] = clicked.target.getAttribute("id");
-		clicked.target.setAttribute("class", "card open flip show");
+		clicked.target.setAttribute("class", "card open");
 		console.log("First Card!!");
 		return;
 	}
 	
 	openCards_id[compareArray(openCards_id)] = clicked.target.getAttribute("id");//Add the card ID IN to the list of open cards
 	
-	clicked.target.setAttribute("class", "card open show");	//Show whats on the card
+	clicked.target.setAttribute("class", "card open");	//Show whats on the card
 	
 	temp = clicked.target; // Hold on to the clicked item for the check() 
 					// to access its data. after waiting 0.5Secs for the user to memorise

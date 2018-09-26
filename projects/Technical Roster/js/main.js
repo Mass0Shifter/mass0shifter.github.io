@@ -3,20 +3,21 @@
 var workersList = [
 	//"Ebubechukwu Precious Chikezie",
 	"Onyedikachi Princess Samuel",
-	"Ejiro Abohwo Fortune",
+	//"Ejiro Abohwo Fortune",
 	"Maryann Danladi",
 	"Adedoyin Hannah Oyewole",
 	"Emmanuel Oladipo",
-	"Afam Samuel Chinasa",
-	"Divine Oriaku Chibuzor",
+	//"Afam Samuel Chinasa",
+	//"Divine Oriaku Chibuzor",
 	"Favour Emmanuel Emenike",
 	"John Adeyemi",
-	//"Michael Ayodele",
+	"Michael Ayodele",
+	"Greg Prosper Aggrey",
 	"Abdulazeez Akindele",
-	"Miracle Onoja Agaba",
+	//"Miracle Onoja Agaba",
 	"Joshua Okhai Ayokhai",
-	//"Daniella Imaobong Uno",
-	//"Oginni Oluwatomiwa Samuel"
+	"Daniella Imaobong Uno",
+	"Oginni Oluwatomiwa Samuel"
 ],
 	sundays = 4,
 	amountOfWorkersPerSunday = workersList.length / sundays;
