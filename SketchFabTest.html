@@ -19,8 +19,8 @@
 	<script>
 		var iframe = document.getElementById("api-frame"),
 			version = "1.0.0",
-			URL_ID = "8d87fee43c2f45b087fee106ff8da3f4",
-			URL_ID2 = "b0d089fb755e49da8872764db3176ada",
+			whiteAvenueLogo = "8d87fee43c2f45b087fee106ff8da3f4",
+			momsPlace = "b0d089fb755e49da8872764db3176ada",
 			client = new Sketchfab(version, iframe),
 			blueButton = document.getElementById( 'blueButton' ),
             orangeButton = document.getElementById( 'orangeButton' ),
@@ -38,10 +38,10 @@
 		
 		// Listen for click events on the buttons
         blueButton.addEventListener( 'click', function() {
-            loadModel( client, blueModel );
+            loadModel( client, whiteAvenueLogo );
         });
         orangeButton.addEventListener( 'click', function() {
-            loadModel( client, orangeModel );
+            loadModel( client, momsPlace );
         });
 	</script>
 	
