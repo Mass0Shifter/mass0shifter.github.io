@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sketch Fab Test</title>
+</head>
+
+<body>
+	<iframe src="" id="api-frame" allowfullscreen="true" webkitallowfullscreen="true" width="500px" height="300px"></iframe>
+	<script src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.0.js"></script>
+	
+	<script>
+		var iframe = document.getElementById("api-frame");
+		var version = "1.0.0";
+		var URL_ID = "8d87fee43c2f45b087fee106ff8da3f4";
+		var client = new Sketchfab(version, iframe);
+		
+		client.init(URL_ID, {
+			success: function onSuccess(api){
+				api.start();
+			},
+			error: function onError(){
+				console.log("Viewer error");
+			}
+		});
+	</script>
+	
+</body>
+</html>
