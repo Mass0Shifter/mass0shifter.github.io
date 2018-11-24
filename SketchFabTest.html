@@ -23,9 +23,9 @@
 			momsPlace = "b0d089fb755e49da8872764db3176ada",
 			client = new Sketchfab(version, iframe),
 			blueButton = document.getElementById( 'blueButton' ),
-            orangeButton = document.getElementById( 'orangeButton' ),
-			error = funciton(){console.log("Viewer error");},
-			success = funciton(api){api.start();};
+            orangeButton = document.getElementById( 'orangeButton' );
+			error = function(){console.log("Viewer error");};
+			success = function(api){api.start();};
 		
 		function loadModel(client, model){
 		console.log("Viewer error");
