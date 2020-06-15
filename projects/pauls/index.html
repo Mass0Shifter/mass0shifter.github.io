@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<body class="dashboard-bg">
+
+<div class="">
+    <!-- Icon Bar (Sidebar - hidden on small screens) -->
+    <div class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="navOptions">
+        <!-- Avatar image in top left corner -->
+        <div class="text-center logo-pad">
+            <img src="assets/img/REMA_01@2x.png" style="width:95%">
+        </div>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large color-orange">
+            <i class="fa fa-home w3-large"></i>
+            <!-- <p>HOME</p> -->
+        </a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+            <i class="fa fa-user w3-large"></i>
+            <!-- <p>ABOUT</p> -->
+        </a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+            <i class="fa fa-eye w3-large"></i>
+            <!-- <p>PHOTOS</p> -->
+        </a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+            <i class="fa fa-envelope w3-large"></i>
+            <!-- <p>CONTACT</p> -->
+        </a>
+    </div>
+
+    <nav class="content-header bg-white container-fluid margin fixed-top">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-sm-6 align-items-center ">
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navOptions" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <h4>CORPORATE HEAD OFFICE</h4>
+            </div>
+            <!-- END Left Section -->
+
+            <!-- Right Section -->
+            <div class="col-sm-6 text-right">
+                <!-- User Dropdown -->
+                <div class="dropdown d-inline-block ml-2">
+                    <button type="button" class="btn btn-sm btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-none d-sm-inline-block ml-1">ADMIN</span>
+                        <img class="rounded-circle" src="assets/img/kazuky-akayashi-pF4iSe6NVkI-unsplash.png" alt="Header Avatar" style="width: 50px;">
+                        <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="page-header-user-dropdown">
+                        <div class="p-3 text-center bg-primary">
+                            <img class="rounded-circle" src="assets/img/kazuky-akayashi-pF4iSe6NVkI-unsplash@2x.png" alt="Header Avatar" style="width: 50px;">
+                            <h4 class="text-white">ADMIN</h4>
+                        </div>
+                        <div class="p-2">
+                            <h5 class="dropdown-header text-uppercase">User Options</h5>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
+                                <span>Profile</span>
+                                <span style="display: block">
+                                    <span class="badge badge-pill badge-primary">1</span>
+                                    <i class="si si-user ml-1"></i>
+                                </span>
+                            </a>                            
+                            <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)" disabled>
+                                <span>Settings</span>
+                                <i class="si si-settings"></i>
+                            </a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <h5 class="dropdown-header text-uppercase">Actions</h5>
+                            <a class="dropdown-item d-flex align-items-center justify-content-between" href="#">
+                                <span>Log Out</span>
+                                <i class="si si-logout ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- END User Dropdown -->
+            </div>
+            <!-- END Right Section -->
+        </div>
+    </nav>
+</div>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large text-center" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-64" id="home">
+    <h1 class="w3-jumbo">Dashboard</h1>
+  </header>
+    <br>
+    
+  <div class="container-fluid">
+      <div class="row">
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier">12</span></div> 
+                    <br>PROPERTIES
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-blue"><span class="notifier">9</span></div> 
+                    <br>LANDLORDS
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-blue"><span class="notifier">4</span></div> 
+                    <br>SURVEYORS
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2 badged" badge-count="4" badge-created="false">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier">8</span></div> 
+                    <br>VACANT UNITS
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2 badged" badge-count="2" badge-created="false">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template">
+                    <div class="circleBox w3-round-xlarge color-black"><span class="notifier"><i class="fa fa-close text-danger"></i></span></div> 
+                    <br>RENT EXPIRATION
+                </a>
+                
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template" >
+                    <div class="circleBox w3-round-xlarge color-black"><span class="notifier">8</span></div> 
+                    <br>TENANTS
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier">2</span></div> 
+                    <br>MAINTAINANCE
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier"><i class="fa fa-money text-dark"></i></span></div> 
+                    <br>SALES
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier">12</span></div> 
+                    <br>MEETINGS
+                </a>
+           </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier">1</span></div> 
+                    <br>REPAIRS
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-2">          
+                <a class="w3-button w3-light-grey w3-center w3-padding-large w3-section rounded text-template ">
+                    <div class="circleBox w3-round-xlarge color-orange"><span class="notifier"><i class="fa fa-tasks text-dark"></i></span></div> 
+                    <br>DAILY TASKS
+                </a>
+            </div>
+      </div>
+  </div>
+ 
+  
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>
