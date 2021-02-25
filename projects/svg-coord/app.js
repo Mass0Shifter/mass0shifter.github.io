@@ -139,39 +139,39 @@ function processDatumnData(count) {
     let datas = [];
     let finalData = [];
 
-    datas = [
-        {
-            PB: "A",
-            E: 171259,
-            N: 1000269
-        },
-        {
-            PB: "B",
-            E: 171307,
-            N: 1000226
-        },
-        {
-            PB: "C",
-            E: 171251,
-            N: 1000161
-        },
-        {
-            PB: "D",
-            E: 171201,
-            N: 1000214
-        }
-    ];
-
-    // for (let index = 0; index < count; index++) {
-    //     const PBvalue = document.getElementById('station_point-' + index);
-    //     const Evalue = document.getElementById('easting-' + index);
-    //     const Nvalue = document.getElementById('northing-' + index);
-    //     datas[index] = {
-    //         PB:PBvalue.value,
-    //         E:Number(Evalue.value),
-    //         N:Number(Nvalue.value),            
+    // datas = [
+    //     {
+    //         PB: "A",
+    //         E: 171259,
+    //         N: 1000269
+    //     },
+    //     {
+    //         PB: "B",
+    //         E: 171307,
+    //         N: 1000226
+    //     },
+    //     {
+    //         PB: "C",
+    //         E: 171251,
+    //         N: 1000161
+    //     },
+    //     {
+    //         PB: "D",
+    //         E: 171201,
+    //         N: 1000214
     //     }
-    // }
+    // ];
+
+    for (let index = 0; index < count; index++) {
+        const PBvalue = document.getElementById('station_point-' + index);
+        const Evalue = document.getElementById('easting-' + index);
+        const Nvalue = document.getElementById('northing-' + index);
+        datas[index] = {
+            PB:PBvalue.value,
+            E:Number(Evalue.value),
+            N:Number(Nvalue.value),            
+        }
+    }
 
     for (let i = 0; i < datas.length; i++) {
         datumEasting = datas[i].E - ((i - 1) < 0 ? datas[datas.length - 1].E : datas[i - 1].E);
