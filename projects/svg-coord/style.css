@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+label {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 .resultTable th,
 tr,
 td,
