@@ -1,3 +1,30 @@
-.resultTable th, tr, td, caption{
+* {
+    text-align: center;
+}
+
+.resultTable th,
+tr,
+td,
+caption {
     border: 1px solid black;
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+#app-bar {
+    text-align: center;
+    padding-top: 5%;
+}
+
+#app-container {
+    text-align: center;
+    padding-top: 10%;
+}
+
+#app-result-area {
+    text-align: center;
+    padding-top: 10%;
 }

@@ -1,65 +1,132 @@
-function askQuestions() {
+let appContainer;
+let appBar;
+let appResult;
 
-    document.body.innerHTML = "";
+function askQuestions() {
+    appContainer.innerHTML = "";
     options.forEach(element => {
         let btn = document.createElement('button');
         btn.innerHTML = element.name;
         btn.addEventListener(
             'click',
             () => {
-                generateInputFields(element.key);
+                askQuestions2(element.key);
             }
         );
         console.log(element);
-        document.body.appendChild(btn);
+        appContainer.appendChild(btn);
     });
 }
 
-function generateInputFields(key) {
-    let count = 4;
+function askQuestions2(key) {
+    if (key == "dp") {
+        appContainer.innerHTML = "";
+        // calc_bearing
+        let selectionFieldLabel = document.createElement('label');
+        selectionFieldLabel.setAttribute('for', 'moa');
+        selectionFieldLabel.innerHTML = "Choose Method Of Area";
+
+        let selection = document.createElement('select');
+        // selection.setAttribute('type', 'select');
+        selection.setAttribute('id', 'moa');
+
+        methodsOfArea.forEach(element => {
+            let option = document.createElement('option');
+            option.setAttribute('value', element);
+            option.innerHTML = element;
+            selection.appendChild(option);
+        });
+
+        appContainer.appendChild(selectionFieldLabel);
+        appContainer.appendChild(selection);
+
+        let countFieldLabel = document.createElement('label');
+        countFieldLabel.setAttribute('for', 'station-count');
+        countFieldLabel.innerHTML = "Station Count";
+
+        let countField = document.createElement('input');
+        countField.setAttribute('type', 'number');
+        countField.setAttribute('id', 'station-count');
+        appContainer.appendChild(countFieldLabel);
+        appContainer.appendChild(countField);
+
+        let btn = document.createElement('button');
+        btn.innerHTML = "Enter Stations";
+        btn.addEventListener(
+            'click',
+            () => {
+                generateInputFields();
+            }
+        );
+        appContainer.appendChild(btn);
+    }
+
+    if (key == "ia") {
+        appContainer.innerHTML = "";
+        let btn = document.createElement('button');
+        btn.innerHTML = "Nothing Here Go Back";
+        btn.addEventListener(
+            'click',
+            () => {
+                askQuestions();
+            }
+        );
+        appContainer.appendChild(btn);
+    }
+}
+
+function generateInputFields() {
+    let countInput = document.getElementById('station-count');
+    let optionInput = document.getElementById('moa');
+    let option = optionInput.value;
+    let count = countInput.value;
+    if (count < 1) {
+        alert("You Didn't Enter Amount of Stations")
+        return askQuestions();
+    }
     // alert(key);  
     let column = document.createElement('div');
     column.setAttribute('id', 'Datum-Plotting');
 
-    // calc_area
-    let calc_area_label = document.createElement('label');
-    calc_area_label.setAttribute('for', 'calc_area');
-    calc_area_label.innerHTML = "Area";
+    // // calc_area
+    // let calc_area_label = document.createElement('label');
+    // calc_area_label.setAttribute('for', 'calc_area');
+    // calc_area_label.innerHTML = "Area";
 
-    let calc_area = document.createElement('input');
-    calc_area.setAttribute('type', 'checkbox');
-    calc_area.setAttribute('id', 'calc_area');
-    calc_area.checked = true;
+    // let calc_area = document.createElement('input');
+    // calc_area.setAttribute('type', 'checkbox');
+    // calc_area.setAttribute('id', 'calc_area');
+    // calc_area.checked = true;
 
-    // calc_lengths
-    let calc_lengths_label = document.createElement('label');
-    calc_lengths_label.setAttribute('for', 'calc_lengths');
-    calc_lengths_label.innerHTML = "Lengths";
+    // // calc_lengths
+    // let calc_lengths_label = document.createElement('label');
+    // calc_lengths_label.setAttribute('for', 'calc_lengths');
+    // calc_lengths_label.innerHTML = "Lengths";
 
-    let calc_lengths = document.createElement('input');
-    calc_lengths.setAttribute('type', 'checkbox');
-    calc_lengths.setAttribute('id', 'calc_lengths');
-    calc_lengths.checked = true;
+    // let calc_lengths = document.createElement('input');
+    // calc_lengths.setAttribute('type', 'checkbox');
+    // calc_lengths.setAttribute('id', 'calc_lengths');
+    // calc_lengths.checked = true;
 
-    // calc_bearing
-    let calc_bearing_label = document.createElement('label');
-    calc_bearing_label.setAttribute('for', 'calc_bearing');
-    calc_bearing_label.innerHTML = "Lengths";
+    // // calc_bearing
+    // let calc_bearing_label = document.createElement('label');
+    // calc_bearing_label.setAttribute('for', 'calc_bearing');
+    // calc_bearing_label.innerHTML = "Bearings";
 
-    let calc_bearing = document.createElement('input');
-    calc_bearing.setAttribute('type', 'checkbox');
-    calc_bearing.setAttribute('id', 'calc_bearing');
-    calc_bearing.checked = true;
+    // let calc_bearing = document.createElement('input');
+    // calc_bearing.setAttribute('type', 'checkbox');
+    // calc_bearing.setAttribute('id', 'calc_bearing');
+    // calc_bearing.checked = true;
 
-    // Add them to column    
-    column.appendChild(calc_area_label);
-    column.appendChild(calc_area);
+    // // Add them to column    
+    // column.appendChild(calc_area_label);
+    // column.appendChild(calc_area);
 
-    column.appendChild(calc_lengths_label);
-    column.appendChild(calc_lengths);
+    // column.appendChild(calc_lengths_label);
+    // column.appendChild(calc_lengths);
 
-    column.appendChild(calc_bearing_label);
-    column.appendChild(calc_bearing);
+    // column.appendChild(calc_bearing_label);
+    // column.appendChild(calc_bearing);
 
     for (let index = 0; index < count; index++) {
 
@@ -112,13 +179,13 @@ function generateInputFields(key) {
     start_botton.addEventListener(
         'click',
         () => {
-            processDatumnData(count);
+            processDatumnData(count, option);
         }
     );
     column.appendChild(start_botton);
 
-    document.body.innerHTML = "";
-    document.body.appendChild(column);
+    appContainer.innerHTML = "";
+    appContainer.appendChild(column);
 
     // <div id="Datum-Plotting">
     //     <input type="checkbox" name="calc_area" id="calc_area" checked>
@@ -135,7 +202,9 @@ function generateInputFields(key) {
 
 }
 
-function processDatumnData(count) {
+function processDatumnData(count, option) {
+    // alert("?");
+    // count = 4;
     let datas = [];
     let finalData = [];
 
@@ -167,9 +236,9 @@ function processDatumnData(count) {
         const Evalue = document.getElementById('easting-' + index);
         const Nvalue = document.getElementById('northing-' + index);
         datas[index] = {
-            PB:PBvalue.value,
-            E:Number(Evalue.value),
-            N:Number(Nvalue.value),            
+            PB: PBvalue.value,
+            E: Number(Evalue.value),
+            N: Number(Nvalue.value),
         }
     }
 
@@ -196,8 +265,8 @@ function processDatumnData(count) {
         finalData[x].SexBearing = convertDecimalToSexagesimal(finalData[x].Bearing);
     }
 
-    document.body.innerHTML = "";
-    document.body.appendChild(tabulateElements(finalData));
+    appContainer.innerHTML = "";
+    appContainer.appendChild(tabulateElements(finalData, option));
 
     // console.log(calculateArea(finalData,"double-datumn"));
     console.log(finalData);
@@ -205,10 +274,10 @@ function processDatumnData(count) {
 
 function addDegrees(DE, DN) {
     signs = {
-        SE: (DE > 0 ? "+" : "-"),
-        SN: (DN > 0 ? "+" : "-")
-    }
-    // console.log(signs); 
+            SE: (DE > 0 ? "+" : "-"),
+            SN: (DN > 0 ? "+" : "-")
+        }
+        // console.log(signs); 
 
     if (signs.SE === "+" && signs.SN === "+") {
         return 0;
@@ -240,27 +309,184 @@ function convertDecimalToSexagesimal(decimal) {
     return Math.floor(degrees) + "ᴼ " + Math.floor(minutes) + "' " + seconds + '"';
 }
 
-function calculateArea(data, method = "double-datumn") {
+function calculateArea(data, method = "cross-coordinate") {
+    // method = "double-latitude";
     let currentValue = 0;
     let doubleArea = 0;
-    if (method === "double-datumn") {
+    if (method === "double-latitude") {
+        let tablulated = document.createElement('table');
+        let headerRow = document.createElement("tr");
+        let collectAreas = [];
+        tablulated.innerHTML = "<caption>Double-Latitude Method Of Area</caption>";
+        headerRow.innerHTML += "<th> N </th> <th> E </th> <th> Double Areas </th>";
+        tablulated.appendChild(headerRow);
         for (let k = 0; k < data.length; k++) {
+            // currentValue += data[k].DN
+            // doubleArea += currentValue * data[k].DE;
+            // currentValue += data[k].DN
+            let row = document.createElement("tr");
+            let row2 = document.createElement("tr");
+            let row3 = document.createElement("tr");
+            let row4 = document.createElement("tr");
+            row.innerHTML = "<td> (" + currentValue + ") </td> <td> </td> <td> </td>"
             currentValue += data[k].DN
+            row2.innerHTML = "<td> + (" + currentValue + ") </td> <td> </td> <td> </td>"
             doubleArea += currentValue * data[k].DE;
+            row3.innerHTML = "<td> (" + currentValue + ") </td> <td>x " + data[k].DE + " =</td> <td>" + (currentValue * data[k].DE) + "</td>"
             currentValue += data[k].DN
+            row4.innerHTML = "<td>+ (" + currentValue + ") </td> <td></td> <td></td>"
+            collectAreas[k] = (currentValue * data[k].DE);
+            tablulated.appendChild(row);
+            tablulated.appendChild(row2);
+            tablulated.appendChild(row3);
+            tablulated.appendChild(row4);
+        }
+
+        function ds() {
+            let x = "";
+            for (let asd = 0; asd < collectAreas.length; asd++) {
+                const element = collectAreas[asd];
+
+                if (asd === collectAreas.length - 1) {
+                    x += element;
+                } else {
+                    x += "(" + element + ") +";
+                }
+            }
+
+            return x;
         }
         finalArea = doubleArea / 2;
+        let th = document.createElement("tfoot");
+        let r1 = document.createElement("tr");
+        let r2 = document.createElement("tr");
+        r1.innerHTML += "2Area = (" + ds() + ") = " + doubleArea;
+        r2.innerHTML += "Area = |" + doubleArea + "/ 2| = " + (finalArea < 0 ? finalArea * -1 : finalArea);
+        th.appendChild(r1);
+        th.appendChild(r2);
+        tablulated.appendChild(th);
+        appResult.appendChild(tablulated);
         return finalArea;
     }
+
+    if (method === "double-departure") {
+        let tablulated = document.createElement('table');
+        let headerRow = document.createElement("tr");
+        let collectAreas = [];
+        tablulated.innerHTML = "<caption>Double Departure Method Of Area</caption>";
+        headerRow.innerHTML += "<th> E </th> <th> N </th> <th> Double Areas </th>";
+        tablulated.appendChild(headerRow);
+
+        for (let k = 0; k < data.length; k++) {
+            let row = document.createElement("tr");
+            let row2 = document.createElement("tr");
+            let row3 = document.createElement("tr");
+            let row4 = document.createElement("tr");
+            row.innerHTML = "<td> (" + currentValue + ") </td> <td> </td> <td> </td>"
+            currentValue += data[k].DE
+            row2.innerHTML = "<td> + (" + currentValue + ") </td> <td> </td> <td> </td>"
+            doubleArea += currentValue * data[k].DN;
+            row3.innerHTML = "<td> (" + currentValue + ") </td> <td>x " + data[k].DN + " =</td> <td>" + (currentValue * data[k].DN) + "</td>"
+            currentValue += data[k].DE
+            row4.innerHTML = "<td>+ (" + currentValue + ") </td> <td></td> <td></td>"
+            collectAreas[k] = (currentValue * data[k].DN);
+            tablulated.appendChild(row);
+            tablulated.appendChild(row2);
+            tablulated.appendChild(row3);
+            tablulated.appendChild(row4);
+
+            // let row = document.createElement("tr");
+            // let row2 = document.createElement("tr");
+            // let row3 = document.createElement("tr");
+            // row.innerHTML = "<td> "+ currentValue +" </td> <td> </td> <td> </td>"
+            // currentValue += data[k].DE
+            // doubleArea += currentValue * data[k].DN;
+            // row2.innerHTML = "<td> "+ currentValue +" </td> <td>x "+ data[k].DN +" =</td> <td>"+ (currentValue * data[k].DN) +"</td>"
+            // currentValue += data[k].DE
+            // row3.innerHTML = "<td> "+ currentValue +" </td> <td></td> <td></td>"
+            // collectAreas[k] = (currentValue * data[k].DN);
+            // tablulated.appendChild(row);
+            // tablulated.appendChild(row2);
+            // tablulated.appendChild(row3);
+        }
+
+        function ds() {
+            let x = "";
+            for (let asd = 0; asd < collectAreas.length; asd++) {
+                const element = collectAreas[asd];
+
+                if (asd === collectAreas.length - 1) {
+                    x += element;
+                } else {
+                    x += "(" + element + ") +";
+                }
+            }
+
+            return x;
+        }
+        finalArea = doubleArea / 2;
+        let r1 = document.createElement("tr");
+        let r2 = document.createElement("tr");
+        r1.innerHTML += "<th> 2Area = (" + ds() + ") = " + doubleArea + " </th>";
+        r2.innerHTML += "<th>Area = |" + doubleArea + "/ 2| = " + (finalArea < 0 ? finalArea * -1 : finalArea) + "</th>";
+        tablulated.appendChild(r1);
+        tablulated.appendChild(r2);
+        appResult.appendChild(tablulated);
+        return finalArea;
+    }
+
+    if (method === "cross-coordinate") {
+        let N = 0;
+        let E = 0;
+        let SubNE = 0;
+        let Area = 0;
+        let tablulated = document.createElement('table');
+        tablulated.innerHTML = "<caption>Cross Coordinate Method Of Area</caption>";
+        let headerRow = document.createElement("tr");
+        headerRow.innerHTML += "<th> A1 </th> <th> A2 </th>";
+        tablulated.appendChild(headerRow);
+
+        for (let k = 0; k < data.length; k++) {
+            let row = document.createElement("tr");
+            let A1 = data[k].N * (k + 1 === data.length ? data[0].E : data[k + 1].E);
+            let A2 = data[k].E * (k + 1 === data.length ? data[0].N : data[k + 1].N);
+            N += A1;
+            E += A2;
+            console.log(A1, A2);
+
+            a1 = "<td> (N" + (k + 1) + " x E" + (k + 1 === data.length ? 1 : k + 2) + ") = " + A1 + " </td>";
+            a2 = "<td> (E" + (k + 1) + " x N" + (k + 1 === data.length ? 1 : k + 2) + ") = " + A2 + " </td>";
+            row.innerHTML = a1 + a2;
+            tablulated.appendChild(row);
+        }
+
+        let rowfinalHeader = document.createElement("tr");
+        rowfinalHeader.innerHTML += "<th> A1 </th> <th> A2 </th>";
+
+        let rowfinal = document.createElement("tr");
+        rowfinal.innerHTML += "<td> " + N + " </td><td> " + E + " </td>";
+
+        SubNE = N - E;
+        Area = SubNE / 2;
+
+        let r1 = document.createElement("tr");
+        r1.innerHTML += "<th> 2Area = (A1 - A2) = " + SubNE + " </th> <th> Area = " + SubNE + "/ 2 = " + Area + "</th>";
+        tablulated.appendChild(rowfinalHeader);
+        tablulated.appendChild(rowfinal);
+        tablulated.appendChild(r1);
+        appResult.appendChild(tablulated);
+        return Area;
+    }
+
 }
 
-function tabulateElements(data) {
+function tabulateElements(data, option) {
     let all = document.createElement("div");
     let table = document.createElement("table");
     let caption = document.createElement("caption");
     let headers = document.createElement("tr");
 
-    caption.innerHTML = "Area For Given Plot : " + calculateArea(data);
+    caption.innerHTML = "Area For Given Plot : " + calculateArea(data, option);
     table.appendChild(caption);
 
     tableHeaders.forEach(headerTilte => {
@@ -298,7 +524,7 @@ function tabulateElements(data) {
             sb = "<td>" + pb.SexBearing + "</td>";
             row.innerHTML = pbName + n + e + dn + de + d + b + sb;
             Lasting = row;
-        }else{
+        } else {
             let row = document.createElement("tr");
             let pbName = "<td>" + pb.PB + "</td>";
             let n = "<td>" + pb.N + "</td>";
@@ -311,7 +537,7 @@ function tabulateElements(data) {
             row.innerHTML = pbName + n + e + dn + de + d + b + sb;
             table.appendChild(row);
         }
-        
+
     }
     table.appendChild(Lasting);
     table.className = "resultTable";
@@ -321,9 +547,12 @@ function tabulateElements(data) {
     return all;
 }
 
-window.onload = function () {
-    askQuestions();
-}
+
+methodsOfArea = [
+    "cross-coordinate",
+    "double-departure",
+    "double-latitude",
+]
 
 tableHeaders = [
     "Station Point",
@@ -336,8 +565,7 @@ tableHeaders = [
     "Bearing Sexagecimal"
 ]
 
-options = [
-    {
+options = [{
         name: "Datum Plotting",
         key: "dp"
     },
@@ -346,3 +574,21 @@ options = [
         key: "ia"
     }
 ]
+
+window.onload = function() {
+    appContainer = document.getElementById('app-container');
+    appBar = document.getElementById('app-bar');
+    appResult = document.getElementById('app-result-area');
+    generateAppBar();
+    askQuestions();
+}
+
+function generateAppBar() {
+    btn = document.createElement('button');
+    btn.innerHTML = "Reset Data";
+    btn.addEventListener('click', () => {
+        askQuestions();
+        appResult.innerHTML = "";
+    });
+    appBar.appendChild(btn);
+}
