@@ -227,7 +227,7 @@ function spawnChapter(testament) {
             bookLabel.innerHTML = currentBook.name
 
             let column = document.createElement('div');
-            column.setAttribute('class', 'col-2');
+            column.setAttribute('class', 'col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2');
 
             inputGroup.appendChild(bookSelectible);
             inputGroup.appendChild(bookLabel);
@@ -256,7 +256,7 @@ function spawnChapter(testament) {
             bookLabel.innerHTML = currentBook.name;
 
             let column = document.createElement('div');
-            column.setAttribute('class', 'col-2');
+            column.setAttribute('class', 'col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2');
 
             inputGroup.appendChild(bookSelectible);
             inputGroup.appendChild(bookLabel);
