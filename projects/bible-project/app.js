@@ -22,7 +22,7 @@ function preparePlan() {
     // console.log(selectedBooks);
     // console.log(chapters);
     // console.log(thePlan);
-    if (fileName = "") {
+    if (fileName == "") {
         fileName = "Bible Plan.pdf";
     } else {
         fileName = fileName + ".pdf";
