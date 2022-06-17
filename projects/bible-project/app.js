@@ -58,9 +58,50 @@ function saveToPDF(fileTitle, fileDescription, fileName) {
 
         // Configure Font Styling for day
         doc.setFont("calibri", "italic", "400");
-        doc.text(currentDay.split("-")[1], 50, offsetY, { align: "left" });
+        let readings = currentDay.split("-")[1];
+        let readingsArray = readings.split(";");
+        let halfs = [];
+        let lineCutter = 5;
 
-        offsetY += 10;
+        if (readingsArray.length > lineCutter) {
+            // if (readingsArray[0].length > 12) {
+            let lines = Math.ceil(readingsArray.length / lineCutter);
+
+            for (let i = 1; i <= lines; i++) {
+                let string = "";
+                let cut = i * lineCutter;
+                let begin = cut - lineCutter;
+                let end = cut;
+
+                if (i == lines) {
+                    end = readingsArray.length;
+                }
+
+                for (let a = begin; a < end; a++) {
+                    if (a == (end - 1)) {
+                        string += readingsArray[a];
+                    } else {
+                        string += readingsArray[a] + "; ";
+                    }
+                }
+
+                halfs.push(string);
+            }
+
+            for (const half of halfs) {
+                doc.text(half, 50, offsetY, { align: "left" });
+                offsetY += 5;
+                if (half == halfs[halfs.length - 1]) {
+                    offsetY += 5;
+                }
+            }
+            // }
+
+        } else {
+            doc.text(readings, 50, offsetY, { align: "left" });
+            offsetY += 10;
+        }
+
 
         if (offsetY >= 290) {
             doc.addPage();
