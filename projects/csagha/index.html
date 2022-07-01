@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Generator C.S. AGHA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+    body {
+        padding: 5%;
+    }
+    
+    .check-all-link {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="menu" class="menu">
+        <h1>Receipt Generator For C.S. AGHA</h1>
+
+        <p>Generate receipts for printing in pdf format.</p>
+
+        <div class="mb-3 mt-3">
+            <label for="file-title" class="form-label">File Title:</label>
+            <input type="text" class="form-control" id="file-title" placeholder="Caption The Reading Plan?" name="file-title" value="Receipt">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="start-number" class="form-label">Start Number:</label>
+            <input type="number" class="form-control" id="start-number" placeholder="Start Number 00001." name="start-number" value="00001">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="stop-number" class="form-label">Stop Number:</label>
+            <input type="number" class="form-control" id="stop-number" placeholder="Stop Number 00100." name="stop-number" value="00010">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="significant-figure" class="form-label">significant-figure :</label>
+            <input type="number" class="form-control" id="significant-figure" placeholder="significant figure." name="significant-figure" value="5">
+        </div>
+
+        <button class="btn btn-primary" id="prepare-receipt" disabled onclick="prepareReceipts();">Prepare Receipts</button>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+<script src="dad.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>
